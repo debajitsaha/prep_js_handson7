@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <center><h1>Map & Set</h1></center>
+    <pre class="qes">Q.1 "Problem:
+        You are given a string (STR) of length N, consisting of only the lower case English alphabet.
+        Your task is to remove all the duplicate occurrences of characters in the string.
+        
+        Input:
+        abcadeecfb
+        
+        Output:
+        abcdef"</pre>
+        <pre>→ function removeDuplicates(str) {
+            var uniqueChars = new Set();
+            var result = '';
+          
+            for (var i = 0; i < str.length; i++) {
+              var char = str[i];
+              if (!uniqueChars.has(char)) {
+                uniqueChars.add(char);
+                result += char;
+              }
+            }
+          
+            return result;
+          }
+          
+          var str = 'abcadeecfb';
+          var output = removeDuplicates(str);
+          console.log(output);
+        <h2>Explain:</h2> we define a function called removeDuplicates that takes a string str as input. Inside the function, we initialize an empty Set called uniqueChars to keep track of unique characters encountered.
+
+        We iterate over each character of the input string using a for loop. For each character, we check if it is already present in the uniqueChars Set. If not, we add it to the Set and append it to the result string.
+        
+        Finally, we return the result string, which will contain only the unique characters from the input string.</pre>
+        <pre class="qes">Q.2 "Problem:
+            You are given a string (STR) of length N, you have to print the count of all alphabet.(using maps)
+            
+            Input:
+            abcadeecfb
+            
+            Output:
+            a=2
+            b=2
+            c=2
+            d=1
+            e=2
+            f=1"</pre>
+            <pre>→ function countAlphabets(str) {
+                const alphabetCount = {};
+              
+                for (let i = 0; i < str.length; i++) {
+                  const char = str[i].toLowerCase();
+                  if (/[a-z]/.test(char)) {
+                    if (alphabetCount[char]) {
+                      alphabetCount[char]++;
+                    } else {
+                      alphabetCount[char] = 1;
+                    }
+                  }
+                }
+              
+                for (const [char, count] of Object.entries(alphabetCount)) {
+                  console.log(`${char}=${count}`);
+                }
+              }
+              
+              // Example usage
+              const string = "abcadeecfb";
+              countAlphabets(string);
+            <h2>Explain:</h2> we initialize an empty object alphabetCount to store the counts of each alphabet. 
+            We iterate through each character in the string using a for loop.
+             We convert each character to lowercase using toLowerCase() to ensure case-insensitive counting. 
+             We check if the character is a letter using a regular expression /[a-z]/, and if so, we update its count in the alphabetCount object. 
+             Finally, we iterate through the object using Object.entries() and print each alphabet along with its count.</pre>
+    
+</body>
+</html>
